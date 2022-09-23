@@ -1,16 +1,35 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+import { render } from '@testing-library/react';
+import { Component } from 'react';
+import axios from 'axios';
+import { Searchbar } from './Searchbar/Searchbar';
+
+const KEY_FETCH = "29228905-12cd39cd1befa2d2c4090f04e";
+
+export class App extends Component {
+  state = {
+    imageName: '',
+    gallery: [],
+    page: 1,
+  }
+
+  componentDidMount() {
+    this.fetchGallery();
+  }
+
+  fetchGallery() {
+    const { page } = this.state;
+    axios.get(`https://pixabay.com/api/?q=cat&page=${page}&key=${KEY_FETCH}&image_type=photo&orientation=horizontal&per_page=12`)
+  }
+
+  handleFormSubmit = imageName => {
+    this.setState({ imageName });
+  }
+  
+  render() {
+    return (
+      <div>
+        <Searchbar onSubmit={this.handleFormSubmit} />
+      </div>
+    );
+  }
+}
