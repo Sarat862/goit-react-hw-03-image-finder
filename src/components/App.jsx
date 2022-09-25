@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import { Component } from 'react';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
