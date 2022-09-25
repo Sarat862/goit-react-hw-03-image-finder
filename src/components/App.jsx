@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
 import { Component } from 'react';
 import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Searchbar } from './Searchbar/Searchbar';
 
 const KEY_FETCH = "29228905-12cd39cd1befa2d2c4090f04e";
@@ -29,6 +31,7 @@ export class App extends Component {
     return (
       <div>
         <Searchbar onSubmit={this.handleFormSubmit} />
+        <ToastContainer position="top-center" hideProgressBar autoClose={1000} theme="colored"/>
       </div>
     );
   }
