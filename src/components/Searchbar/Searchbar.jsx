@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import css from './Searchbar.module.css';
 import { toast } from 'react-toastify';
+import { FcSearch } from 'react-icons/fc';
 
 export class Searchbar extends Component {
 
@@ -29,15 +30,15 @@ export class Searchbar extends Component {
             <header className={css.searchbar}>
                 <form className={css.searchForm} onSubmit={this.handleSubmit}>
                     <button type="submit" className={css.searchForm__button}>
-                        <span className={css.searchForm__buttonLabel}>Search</span>
+                        <span className={css.searchForm__buttonLabel}><FcSearch size={30}/></span>
                     </button>
 
                     <input
                         className={css.searchForm__input}
                         type="text"
                         value={this.state.imageName}
-                        // autocomplete="off"
-                        // autofocus
+                        autoComplete="off"
+                        autoFocus
                         placeholder="Search images and photos"
                         onChange={this.hadleChange}
                     />

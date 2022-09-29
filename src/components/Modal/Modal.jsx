@@ -30,4 +30,4 @@ export class Modal extends Component {
       modalRoot
      )
   }
-}    
+}
